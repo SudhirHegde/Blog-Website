@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 const ejs = require("ejs");
 const mongoose = require('mongoose');
 
-const homeStartingContent = "Welcome to My BlogSite My Name is Sudhir , I'm currently pursuing Bachelor of Engineering at Canara Engineering College in Information Science and Engineering, im an aspiring full stack web developer looking to hone my skills and learn new technologies as in my interests, this is my first post on this blogsite to mark the beginning of my Journey in WEB development and blogging.";
+const homeStartingContent = "Welcome to My BlogSite My Name is Sudhir , I'm currently pursuing Bachelor of Engineering at Canara Engineering College in Information Science and Engineering, im an aspiring full stack web developer looking to hone my skills and learn new technologies within my interests, this is my first post on this blogsite to mark the beginning of my Journey in WEB development and blogging.";
 const aboutContent = "";
 const contactContent=""
 
@@ -75,7 +75,11 @@ app.get("/contact", function(req, res){
   res.render("contact", {contactContent: contactContent});
 });
 
+let port = process.env.PORT;
+if(port==null||port==""){
+  port = 3000;
+}
 
-app.listen(3000, function() {
+app.listen(port, function() {
   console.log("Server started on port 3000");
 });
